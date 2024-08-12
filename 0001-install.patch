@@ -1,0 +1,50 @@
+From 974d07ec6033195a9873c7c10e9e8e6e0ba24e94 Mon Sep 17 00:00:00 2001
+From: wjyrich <1071633242@qq.com>
+Date: Sun, 11 Aug 2024 15:16:58 +0800
+Subject: [PATCH] install
+
+---
+ 3GPPDecoder.desktop | 11 +++++++++++
+ 3gpp-decoder.pro    |  9 +++++++++
+ 2 files changed, 20 insertions(+)
+ create mode 100644 3GPPDecoder.desktop
+
+diff --git a/3GPPDecoder.desktop b/3GPPDecoder.desktop
+new file mode 100644
+index 0000000..398a85e
+--- /dev/null
++++ b/3GPPDecoder.desktop
+@@ -0,0 +1,11 @@
++[Desktop Entry]
++Categories=Accessibility;Qt;Utility;
++Exec=3GPPDecoder
++Name=3GPPDecoder
++Name[zh_CN]=3GPPDecoder
++Icon=decoder
++StartupNotify=false
++Terminal=false
++Type=Application
++GenericName=3GPPDecoder
++Version=0.1
+\ No newline at end of file
+diff --git a/3gpp-decoder.pro b/3gpp-decoder.pro
+index 852f686..31aba5e 100644
+--- a/3gpp-decoder.pro
++++ b/3gpp-decoder.pro
+@@ -52,3 +52,12 @@ DISTFILES += \
+ 
+ RESOURCES += \
+     images.qrc
++
++
++target.path = $$PREFIX/bin
++desktop.files = 3GPPDecoder.desktop
++desktop.path = $$PREFIX/share/applications/
++icons.path = $$PREFIX/share/icons
++icons.files = decoder.png
++
++INSTALLS += target desktop icons
+\ No newline at end of file
+-- 
+2.43.4
+
