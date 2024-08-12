@@ -1,0 +1,28 @@
+version: "1"
+
+package:
+  id: io.github.3gpp-decoder-linux
+  name: 3gpp-decoder-linux
+  version: 0.0.0.1
+  kind: app
+  description: |
+    3GPP Decoder Linux
+
+command:
+  - /opt/apps/io.github.3gpp-decoder-linux/files/bin/3GPPDecoder
+
+base: org.deepin.foundation/23.0.0
+runtime: org.deepin.Runtime/23.0.1
+
+sources:
+  - kind: git
+    url: https://github.com/panigrahip/3gpp-decoder-linux.git
+    version: master
+    commit: 9896873359c3fb27554d049a1cc702c8bf9476e9
+
+build: |
+  cd /project/linglong/sources/3gpp-decoder-linux.git
+  git apply ../../../0001-install.patch
+  qmake -makefile PREFIX=${PREFIX} LIB_INSTALL_DIR=${PREFIX}/lib/${TRIPLET}
+  make -j$(nproc)
+  make install
